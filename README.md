@@ -1,4 +1,4 @@
-# Speed Game
+# Speed Typing Game
 
 A mini Speed Typing Game
 
