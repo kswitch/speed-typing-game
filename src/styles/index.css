@@ -41,7 +41,7 @@
   resize: none;
   color: black;
   padding: 1rem;
-  line-height: 1rem;
+  line-height: 1.3rem;
 }
 .typing-area:disabled {
   cursor: not-allowed;
