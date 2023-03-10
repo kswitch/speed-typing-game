@@ -1,14 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-export default function TypingArea() {
-    function changeHeight() {
-        const textArea = document.querySelector('.typing-area')
-        textArea.style.height = 'auto';
-        textArea.style.height = textArea.scrollHeight + 'px';
-    }
-
+export default function TypingArea(props) {
     return (
-        <textarea onChange={changeHeight} className="typing-area">
-        </textarea>
+        <textarea 
+            onChange={e => props.handleChange(e)} 
+            className="typing-area" 
+            disabled={!props.gameStarted}
+            value={props.text}
+        />
     )
 }

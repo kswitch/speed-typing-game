@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function TimeRemaining() {
+export default function TimeRemaining(props) {
 
     return (
       <div className="time">
-        Time Remaining: 15
+        Time Remaining: {props.time}
       </div>
     )
 }

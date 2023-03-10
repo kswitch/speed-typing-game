@@ -33,14 +33,17 @@
   outline: none;
   min-height: 150px;
   width: 95%;
+  background: #00b800;
   overflow: hidden;
   resize: none;
-  background-color: #a5a2a2;
   color: black;
   padding: 1rem;
-  /* background: #00b800; */
 }
-.button {
+.typing-area:disabled {
+  cursor: not-allowed;
+  background-color: #a5a2a2;
+}
+.btn {
   font-family: 'Press Start 2P', cursive;
   display: block;
   margin: 1rem auto;
@@ -50,6 +53,10 @@
   padding: 10px 20px;
   cursor: pointer;
   text-transform: uppercase;
+}
+.btn:disabled {
+  background-color: #a5a2a2;
+  cursor: not-allowed;
 }
 
 @media (prefers-color-scheme: light) {
