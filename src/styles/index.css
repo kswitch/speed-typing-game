@@ -49,6 +49,7 @@
   background: #00b800;
   color: black;
   padding: 10px 20px;
+  cursor: pointer;
   text-transform: uppercase;
 }
 
