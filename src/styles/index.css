@@ -20,34 +20,31 @@
 }
 .App {
   margin: 0 auto;
-  width: fit-content;
   max-width: 900px;
-  border: 3px solid white;
 }
 .header, .time {
   text-align: center;
+  margin-top: 1rem;
 }
-/* .typing-area {
-  max-width: 90%;
-  margin: 0 auto;
-  /* overflow: hidden;
-} */
-.typing-area-input {
+.typing-area {
   font-family: 'Press Start 2P', cursive;
-  border: 3px solid black;
-  width: 90%;
-  margin: 0 auto;
+  display: block;
+  margin: 1rem auto;
   outline: none;
-  height: 200px;
+  min-height: 150px;
+  height: fit-content;
+  width: 95%;
+  overflow: hidden;
+  resize: none;
   background-color: #a5a2a2;
-  /* background: #00b800; */
   color: black;
-  padding: 10px;
+  padding: 1rem;
+  /* background: #00b800; */
 }
 .button {
   font-family: 'Press Start 2P', cursive;
   display: block;
-  margin: 0 auto;
+  margin: 1rem auto;
   border: none;
   background: #00b800;
   color: black;

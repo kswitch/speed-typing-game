@@ -1,11 +1,14 @@
 import React from 'react'
 
 export default function TypingArea() {
+    function changeHeight() {
+        const textArea = document.querySelector('.typing-area')
+        textArea.style.height = 'auto';
+        textArea.style.height = textArea.scrollHeight + 'px';
+    }
 
     return (
-        <div className='typing-area'>
-            <textarea className="typing-area-input">
-            </textarea>
-        </div>
+        <textarea onChange={changeHeight} className="typing-area">
+        </textarea>
     )
 }
