@@ -22,6 +22,9 @@
   margin: 0 auto;
   max-width: 900px;
 }
+.header {
+  padding: 0 0.5rem;
+}
 .header, .time {
   text-align: center;
   margin-top: 1rem;
@@ -38,10 +41,23 @@
   resize: none;
   color: black;
   padding: 1rem;
+  line-height: 1rem;
 }
 .typing-area:disabled {
   cursor: not-allowed;
   background-color: #a5a2a2;
+}
+.time-label{
+  text-align: center;
+  width: 95%;
+  display: block;
+  margin: 0 auto;
+}
+.time-input {
+  outline: none;
+  font-family: 'Press Start 2P', cursive;
+  padding: 0.8rem ;
+  max-width: 6rem;
 }
 .btn {
   font-family: 'Press Start 2P', cursive;

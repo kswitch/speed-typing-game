@@ -4,7 +4,7 @@ export default function TimeRemaining(props) {
 
     return (
       <div className="time">
-        Time Remaining: {props.time}
+        Time Remaining: {props.time}secs
       </div>
     )
 }

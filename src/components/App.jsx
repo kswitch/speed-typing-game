@@ -1,18 +1,29 @@
 import React, {useState, useEffect} from 'react'
 import TypingArea from './TypingArea'
 import TimeRemaining from './TimeRemaining'
+import SetTime from './SetTime'
 import Button from './Button'
-
 
 function App() {
   const [gameStarted, setGameStarted] = useState(false)
+  const [result, setResult] = useState(false)
+  const [gameEnded, setGameEnded] = useState(false)
   const [text, setText] = useState("")
+  const [timeInput, setTimeInput] = useState('')
+  const [typeTime, setTypeTime] = useState('')
   const [time, setTime] = useState(0)
   const [wordCount, setWordCount] = useState(0)
 
   function startGame() {
+    if (timeInput < 1) {
+      return alert('Please set a time')
+    }
     setGameStarted(true)
-    setTime(20)
+    setTime(timeInput)
+    setTypeTime(timeInput)
+    setText("")
+    setWordCount(0)
+    setGameEnded(false)
   }
 
   function handleChange(e) {
@@ -22,6 +33,10 @@ function App() {
 
     setText(e.target.value)
     handleWords(e.target.value)
+  }
+
+  function handleTimeChange(e) {
+    setTimeInput(e.target.value);
   }
 
   function handleWords(words) {
@@ -36,6 +51,9 @@ function App() {
   function endGame() {
     setGameStarted(false)
     setTime(0)
+    setTimeInput('')
+    setGameEnded(true)
+    // setResult(false)
   }
 
   useEffect(() => {
@@ -45,30 +63,45 @@ function App() {
     else {
       endGame()
     }
-  },[time, gameStarted])
+  },[time])
+
+  useEffect(() => {
+    if (gameStarted) {
+      setResult(true)
+      return
+    }
+  },[gameStarted])
 
   return (
     <div className="App">
       <header className='header'>
         How fast do you type?
       </header>
+
       <TypingArea 
         gameStarted={gameStarted}
         text={text}
         handleChange={handleChange}
       />
+
+      <SetTime 
+        gameStarted={gameStarted}
+        handleTimeChange={handleTimeChange}
+        timeInput={timeInput}
+      />
+
       <TimeRemaining 
         time={time}
       />
+
       <Button 
         startGame={startGame} 
         gameStarted={gameStarted} 
       />
 
       <header className='header'>
-        Word Count: {wordCount}
+        <p> Word Count: {wordCount} {result && gameEnded && `words in ${typeTime} secs`} </p>
       </header>
-
     </div>
   )
 }
