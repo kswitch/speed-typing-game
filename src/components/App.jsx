@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import TypingArea from './TypingArea'
 import TimeRemaining from './TimeRemaining'
 import SetTime from './SetTime'
@@ -13,6 +13,7 @@ function App() {
   const [typeTime, setTypeTime] = useState('')
   const [time, setTime] = useState(0)
   const [wordCount, setWordCount] = useState(0)
+  const typingArea = useRef(null)
 
   function startGame() {
     if (timeInput < 1) {
@@ -24,6 +25,8 @@ function App() {
     setText("")
     setWordCount(0)
     setGameEnded(false)
+    typingArea.current.disabled = false
+    typingArea.current.focus()
   }
 
   function handleChange(e) {
@@ -79,6 +82,7 @@ function App() {
       </header>
 
       <TypingArea 
+        typingArea={typingArea}
         gameStarted={gameStarted}
         text={text}
         handleChange={handleChange}
